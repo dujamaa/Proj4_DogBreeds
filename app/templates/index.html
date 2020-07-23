@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dog Breed Classifier</title>
+  </head>
+  <body>
+      
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Dog Breed Classifier Project</a>
+        </div>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.udacity.com">Made with Udacity</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/dujamaa">Github</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/dawud-ujamaa">Contact</a>
+              </li>
+            </ul>
+        </div>        
+    </nav>
+
+<div class="col-12">
+<div class="row">    
+            <div class="p-3 mb-2 bg-light text-dark">  
+                
+            <h1 class="text-center">Dog Breed Classifier</h1>
+            <h6 class="text-center"><p class="text-muted"><b>Capstone Project for Udacity's Data Science Nanodegree</b></p></h6>
+            This web-app takes a user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected in the image, it will provide an estimate of the dog breed that is most resembling.  If neither a dog nor a human is detected in the image, it will provide output that indicates an error.
+        <hr />
+                <b>Click on the "Browse" button to select an image to classify, 
+                    then click the "Classify Image" button:</b>
+                
+                   <form method="post" enctype="multipart/form-data" >   
+                      <input type="file" id="imgInp" name="file" onchange="loadFile(event)"  
+                             accept=".jpg, .jpeg, .png" class="form-control input-sm">                            
+                        <div class="col-lg-offset-5">
+                              <button type="submit" class="btn btn-sm btn-success" 
+                                      >Classify Image</button>
+                        </div>
+                    </form>
+        </div>
+    </div>
+    
+    
+    <div class="row"> 
+        <div class="col-6">
+            
+            <img id="output" src="{{ name_of_file }}" class="img-fluid" ><br>
+            <img id="output" class="img-fluid"  />
+
+        </div>
+        
+        <div class="col-6">
+            <h3><b>
+                <p id="detect"> {{ detect_message }} </p>
+                <br>
+                <p id="predict"> {{ Predicted_Breed }} </p>
+                </b>
+            </h3>
+        </div>
+    </div>
+</div>
+
+            <script>
+                var loadFile = function(event) {
+                    var output = document.getElementById('output');
+                    
+                    document.getElementById('detect').innerHTML = "";
+                    document.getElementById('predict').innerHTML = "";
+                    
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                    output.onload = function() {
+                        URL.revokeObjectURL(output.src) // free memory
+                    }
+                };
+            </script> 
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
