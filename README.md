@@ -27,7 +27,7 @@ This project uses Python version 3.7.6 and the following libraries which should 
 * keras==2.3.1
 * matplotlib==3.1.3
 * numpy==1.19.0
-* opencv-python==4.4.0.36
+* opencv-python==4.3.0.36
 * pandas==1.0.1
 * pillow==7.0.0
 * scikit-learn==0.22.1
