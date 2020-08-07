@@ -13,13 +13,6 @@
 9. [Acknowledgements](#Acknowledgements)
 
 
-[//]: # (Image References)
-
-[image1]: ./images/sample_dog_output.png "Sample Output"
-[image2]: ./images/vgg16_model.png "VGG-16 Model Keras Layers"
-[image3]: ./images/vgg16_model_draw.png "VGG16 Model Figure"
-
-
 ### Project Motivation
 This project is being completed to fulfil the Capstone project requirement for Udacity's Data Science Nanodegree program. The objective of this project is to develop an algorithm using Convolutional Neural Networks (CNN) and Deep Learning for computer image recognition which can be used as part of a web app.
 
@@ -28,26 +21,24 @@ This project develops an algorithm using Convolutional Neural Networks that is u
 
 
 ### Installation
-This project uses Python version 3.7+ and the following libraries which should be installed: 
-* pandas 
-* numpy
-* sklearn
-* scipy
-* keras
-* tensorflow
-* matplotlib
-* tqdm 
-* opencv
-* cv2
-* pillow
-* ipykernel
-* h5py
-* glob
+This project uses Python version 3.7.6 and the following libraries which should be installed: 
+* h5py==2.10.0
+* ipykernel==5.1.4
+* keras==2.3.1
+* matplotlib==3.1.3
+* numpy==1.19.0
+* opencv-python==4.4.0.36
+* pandas==1.0.1
+* pillow==7.0.0
+* scikit-learn==0.22.1
+* scipy==1.4.1
+* tensorflow==2.2.0
+* tqdm==4.42.1
 
 Additionally, the web-app uses the following libraries:
+* flask==1.1.1
+* plotly==4.9.0
 * pickle
-* flask
-* plotly
 
 After downloading the repository, download the following datasets and bottleneck features:
 1. Download the [dog dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip).  Unzip the folder and place it in the repo, at location `path/to/dog-project/dogImages`. 
@@ -102,11 +93,22 @@ The model which was ultimately used in the final algorithm for image classificat
 * For the CNN created with Transfer Learning using the Inception bottleneck features, which was ultimately used in the final algorithm, the model attained 80.3% test accuracy in 20 epochs.
 
 ### Web App Instructions
-1. From a terminal, Run the following command in the path-to-project/app directory of the repo to run the web app locally: python dog.py
-2. Go to http://0.0.0.0:3001/ (on Windows go to http://localhost:3001/)
-3. When the web app opens, press the browse button to select an image.
-4. After selecting an image, press the Classify image button to get the result of the web app.
-5. After waiting for the web app to process the image, a result is returned which either predicts the dog's breed if an image of a dog was provided as input, or states the dog breed that resembles the human if a human image was provided as input, or outputs a message that neither a dog nor a human was in the image provided as input.
+1. From a terminal, Run the following command in the `path-to-project/app` directory of the repo to run the web app locally: `python dog.py`
+
+2. Go to http://0.0.0.0:3001/ (on Windows go to http://localhost:3001/) to view the web app
+![Figure1](https://raw.githubusercontent.com/dujamaa/Proj4_DogBreeds/master/images/screenshots/01.png)
+
+3. When the web app opens, press the **Browse** button to select an image, and the image will appear in the app as seen in the screen below:
+![Figure2](https://raw.githubusercontent.com/dujamaa/Proj4_DogBreeds/master/images/screenshots/02.png)
+
+4. After selecting an image, press the **Classify Image** button to get the result of the web app.  After waiting for a moment, a result is returned to the right of the image. If an image of a dog is provided as input, then the predicted breed of the dog is returned as seen in the screen below:  
+![Figure3](https://raw.githubusercontent.com/dujamaa/Proj4_DogBreeds/master/images/screenshots/03.png)
+
+5. If an image of a human is provided as input, then the resembling dog breed is returned to the right of the image as seen in the screen below:
+![Figure4](https://raw.githubusercontent.com/dujamaa/Proj4_DogBreeds/master/images/screenshots/04.png)
+
+6. If an image is provided as input which contains neither a dog nor a human, then a message is returned to the right of the image stating that No Dog or Human was detected in the image, as seen in the screen below:
+![Figure5](https://raw.githubusercontent.com/dujamaa/Proj4_DogBreeds/master/images/screenshots/05.png)
 
 ### Conclusion
 The output of my algorithm is better than I expected. I tested the algorithm on six images: 2 human images, 2 dog images, 1 cat image, and 1 wolf image. My algorithm correctly identified the humans in both images and returned a resembling dog breed. My algorithm correctly identified that neither a dog nor a human was in the cat image. I thought I would be able to trick the algorithm by inputting an image of a wolf, but my algorithm correctly identified that neither a dog nor a human was in the wolf image. My algorithm correctly identified the dog breed for both dog images I provided as input. Although one dog image I provided as input was named “Pitbull,” my algorithm predicted the dog breed as “American Staffordshire Terrier,” and after doing some google searching, I learned that both American Staffordshire Terriers and American Pitbull Terriers look very similar and are both considered “Pitbull” type dogs. Three possible points of improvement for my algorithm could be 1) including dropout layers to minimize overfitting, 2) increasing the number of epochs or adjusting the learning rate, and 3) using image augmentation in the training dataset to account for scale, rotation, and translation invariance to increase the accuracy of the system.
