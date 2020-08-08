@@ -97,9 +97,9 @@ The model which was ultimately implemented in the final algorithm for image clas
 #### Model Evaluation and Validation
 * In assessing the human face detector, the model was able to detect a human face in 99% of 100 human images, and it detected a human face in 12% of 100 dog images.
 * In assessing the ResNet-50 model dog detector, the model was able to detect a dog in 100% of 100 dog images, and it detected a dog in 1% of 100 human images.
-* For the CNN developed from scratch to predict a dog’s breed, the model attained 2.6% test accuracy in 5 epochs.
-* For the CNN created with Transfer Learning using the VGG-16 bottleneck features, the model attained 72.97% test accuracy in 20 epochs.
-* For the CNN created with Transfer Learning using the Inception bottleneck features, which was ultimately used in the final algorithm, the model attained 80.3% test accuracy in 20 epochs.
+* For the CNN developed from scratch to predict a dog’s breed, the model attained 3.1% test accuracy in 5 epochs.
+* For the CNN created with Transfer Learning using the VGG-16 bottleneck features, the model attained 70.6938% test accuracy in 20 epochs.
+* For the CNN created with Transfer Learning using the Inception bottleneck features, which was ultimately used in the final algorithm, the model attained 80.2632% test accuracy in 20 epochs.
 
 #### Justification
 At the beginning of the project I experimented with using the VGG19, ResNet50, and InceptionV3 bottleneck features to build the CNN with Transfer Learning to classify dog breeds.  The VGG19 bottleneck features provided the lowest test accuracy, and the test accuracy of the ResNet50 bottleneck features was inconsistent when testing the model on my local computer and on a GPU.  In the end, the Inception bottleneck features provided the best and most consistent test accuracy.  Since the InceptionV3 bottleneck features seemed to work best, the final model was improved by using the Inception V3 bottleneck features. 
